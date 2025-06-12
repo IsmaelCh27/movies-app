@@ -1,4 +1,6 @@
+import { theme } from '@/presentation/theme';
 import { DarkTheme, ThemeProvider } from '@react-navigation/native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
 import { Slot } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -6,7 +8,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import 'react-native-reanimated';
 import './global.css';
 
-import { theme } from '@/presentation/theme';
+const queryClient = new QueryClient();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -20,19 +22,21 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView
-      style={{ flex: 1, backgroundColor: theme.Colors.background }}
-    >
-      <ThemeProvider value={DarkTheme}>
-        <Slot />
-        <StatusBar
-          translucent
-          // backgroundColor="transparent"
-          // barStyle={'light-content'}
-          // showHideTransition={'fade'}
-          hidden={false}
-        />
-      </ThemeProvider>
-    </GestureHandlerRootView>
+    <QueryClientProvider client={queryClient}>
+      <GestureHandlerRootView
+        style={{ flex: 1, backgroundColor: theme.Colors.background }}
+      >
+        <ThemeProvider value={DarkTheme}>
+          <Slot />
+          <StatusBar
+            translucent
+            // backgroundColor="transparent"
+            // barStyle={'light-content'}
+            // showHideTransition={'fade'}
+            hidden={false}
+          />
+        </ThemeProvider>
+      </GestureHandlerRootView>
+    </QueryClientProvider>
   );
 }

@@ -10,7 +10,6 @@ export const getGenreAction = async () => {
 
     return genres;
   } catch (error) {
-    console.error('Error fetching genre:', error);
     throw new Error('Failed to fetch genres');
   }
 };

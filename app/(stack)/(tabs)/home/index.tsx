@@ -1,32 +1,51 @@
-import ThemedText from '@/presentation/components/ui/ThemedText';
+import MovieHorizontalList from '@/presentation/components/movies/MovieHorizontalList';
 import useMovies from '@/presentation/hooks/useMovies';
-import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const Home = () => {
   const safeArea = useSafeAreaInsets();
 
-  const { genreQuery, nowPlayingQuery } = useMovies();
+  const {
+    genreQuery,
+    nowPlayingQuery,
+    popularQuery,
+    topRatedQuery,
+    upcomingQuery,
+  } = useMovies();
 
   return (
     <View className="flex-1 bg-background" style={{ paddingTop: safeArea.top }}>
       <ScrollView showsVerticalScrollIndicator={false} className="flex-1">
-        <ThemedText className="text-sm">
-          {JSON.stringify(nowPlayingQuery.data ?? [], null, 2)}
-        </ThemedText>
+        <MovieHorizontalList
+          title="Now Playing"
+          className="mb-10"
+          movies={nowPlayingQuery.data ?? []}
+          genres={genreQuery.data ?? []}
+        />
 
-        <ThemedText className="text-5xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-          perspiciatis ipsam fuga debitis eaque at quae dolor sunt dolore est
-          qui asperiores, iure possimus, molestias natus quis maxime. Vero, ab!
-        </ThemedText>
+        <MovieHorizontalList
+          title="Los mas vistos"
+          className="mb-10"
+          movies={popularQuery.data?.pages.flat() ?? []}
+          genres={genreQuery.data ?? []}
+          // loadNextPage={popularQuery.fetchNextPage}
+          // loading={popularQuery.isFetchingNextPage}
+        />
 
-        <ThemedText className="text-5xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-          perspiciatis ipsam fuga debitis eaque at quae dolor sunt dolore est
-          qui asperiores, iure possimus, molestias natus quis maxime. Vero, ab!
-        </ThemedText>
+        <MovieHorizontalList
+          title="Mejor Calificados"
+          className="mb-10"
+          movies={topRatedQuery.data?.pages.flat() ?? []}
+          genres={genreQuery.data ?? []}
+        />
+
+        <MovieHorizontalList
+          title="Proximamente"
+          className="mb-10"
+          movies={upcomingQuery.data?.pages.flat() ?? []}
+          genres={genreQuery.data ?? []}
+        />
       </ScrollView>
     </View>
   );

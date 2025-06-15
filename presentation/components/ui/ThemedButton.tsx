@@ -1,7 +1,6 @@
 import { Colors } from '@/presentation/theme/colors';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import React from 'react';
 import { Pressable, useColorScheme } from 'react-native';
 import ThemedText from './ThemedText';
 
@@ -32,7 +31,7 @@ const ThemedButton = ({
           {...rest}
           style={{
             width: width || '100%',
-            height: size === 'small' ? 40 : 50,
+            height: size === 'small' ? 40 : 45,
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
@@ -64,7 +63,7 @@ const ThemedButton = ({
           {...rest}
           style={{
             width: width || '100%',
-            height: size === 'small' ? 40 : 50,
+            height: size === 'small' ? 40 : 45,
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
@@ -83,7 +82,7 @@ const ThemedButton = ({
           )}
           <ThemedText
             className={`text-foreground ${
-              size === 'small' ? 'text-xl' : 'text-2xl'
+              size === 'small' ? 'text-xl' : 'text-xl'
             } text-center`}
             fontWeight={size === 'small' ? '' : 'medium'}
           >
@@ -98,7 +97,7 @@ const ThemedButton = ({
           {...rest}
           style={{
             width: width || '100%',
-            height: size === 'small' ? 40 : 50,
+            height: size === 'small' ? 40 : 45,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -109,7 +108,7 @@ const ThemedButton = ({
             start={[0, 0]}
             style={{
               width: width || '100%',
-              height: size === 'small' ? 40 : 50,
+              height: size === 'small' ? 40 : 45,
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'center',
@@ -125,7 +124,7 @@ const ThemedButton = ({
             )}
             <ThemedText
               className={`text-foreground ${
-                size === 'small' ? 'text-xl' : 'text-2xl'
+                size === 'small' ? 'text-xl' : 'text-xl'
               } text-center`}
               fontWeight={size === 'small' ? '' : 'medium'}
             >

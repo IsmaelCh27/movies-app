@@ -23,7 +23,7 @@ const Casts = ({ casts }: Props) => {
       </ThemedText>
 
       <View className="flex-wrap flex-row">
-        {casts?.slice(0, castNumber)?.map((actor) => (
+        {casts?.slice(0, castNumber)?.map(actor => (
           <View key={actor.id} className="flex-row items-center w-1/2 py-2">
             <View className="">
               <Image

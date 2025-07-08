@@ -1,10 +1,10 @@
 import { Colors } from '@/presentation/theme/colors';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Pressable, useColorScheme } from 'react-native';
+import { Pressable, type PressableProps } from 'react-native';
 import ThemedText from './ThemedText';
 
-interface Props {
+interface Props extends PressableProps {
   className?: string;
   title: string;
   icon?: keyof typeof Ionicons.glyphMap;
@@ -22,7 +22,6 @@ const ThemedButton = ({
   type = 'filled',
   ...rest
 }: Props) => {
-  const colorScheme = useColorScheme();
   return (
     <>
       {type === 'filled' && (

@@ -132,7 +132,7 @@ const MovieHeader = ({ movie }: Props) => {
           </ThemedText>
         </View>
         <View className="flex-row justify-center gap-8">
-          {movie.genres.map((genre) => (
+          {movie.genres.map(genre => (
             <ThemedText
               key={`${genre}`}
               className="text-lg"

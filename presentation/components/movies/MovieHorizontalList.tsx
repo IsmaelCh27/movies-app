@@ -24,8 +24,8 @@ const MovieHorizontalList = ({
   loading,
 }: Props) => {
   const getGenres = (movieGenres: number[] | string[]) => {
-    const genresStr = movieGenres.map((genreId) => {
-      return genres.find((genre) => genre.id === genreId)?.name;
+    const genresStr = movieGenres.map(genreId => {
+      return genres.find(genre => genre.id === genreId)?.name;
     });
 
     return genresStr?.join(', ');

@@ -1,23 +1,41 @@
-import { theme } from '@/presentation/theme';
 import { Stack } from 'expo-router';
-import React from 'react';
 import { StyleSheet } from 'react-native';
 
 const StackLayout = () => {
   return (
     <Stack
-      screenOptions={{
-        headerShown: false,
-        headerShadowVisible: false,
-        headerStyle: {
-          backgroundColor: theme.Colors.background,
-        },
-        headerTintColor: theme.Colors.text,
-      }}
+      screenOptions={
+        {
+          // headerShown: true,
+          // headerShadowVisible: true,
+          // headerStyle: {
+          //   backgroundColor: theme.Colors.background,
+          // },
+          // headerTintColor: theme.Colors.text,
+        }
+      }
     >
       <Stack.Screen
         name="(tabs)"
         options={{ title: 'Home', headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="movie/[id]"
+        options={{ title: 'Home', headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="login/index"
+        options={{
+          title: 'Login',
+          headerShown: false,
+
+          // headerTitle: () => (
+          //   <ThemedText className="text-red-500">Loginnnn</ThemedText>
+          // ),
+          // headerTintColor: 'red',
+        }}
       />
     </Stack>
   );
@@ -25,4 +43,4 @@ const StackLayout = () => {
 
 export default StackLayout;
 
-const styles = StyleSheet.create({});
+const _styles = StyleSheet.create({});

@@ -17,6 +17,8 @@ const Home = () => {
   return (
     <View className="flex-1 bg-background" style={{ paddingTop: safeArea.top }}>
       <ScrollView showsVerticalScrollIndicator={false} className="flex-1">
+        <View style={{ height: 70, backgroundColor: 'red' }} />
+
         <MovieHorizontalList
           title="Now Playing"
           className="mb-10"
